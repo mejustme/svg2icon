@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
-var task = require('../gulpfile.js')
-task()
+var svg2icon = require('../index.js')
+svg2icon.icon(svg2icon.demo)

@@ -10,13 +10,16 @@ var async = require('async')
 var ejs = require('ejs')
 var fs = require('fs')
 var path = require('path')
+var log = require('fancy-log')
+var opn = require('opn')
 var yargs = require('yargs')
-var config = require('./.svg2iconrc')
+var config = require(path.resolve('.svg2iconrc'))
 var fontName = config.fontName || 'app-icon'
 var svgPath = config.svgPath || 'svg'
 var outPath = config.outPath || 'icon'
+var openDemo = config.openDemo
 
-gulp.task('icon', function (done) {
+function icon (callback) {
   var iconStream = gulp.src([`${svgPath}/*.svg`])
     .pipe(iconfont({
       fontName: fontName,
@@ -25,15 +28,16 @@ gulp.task('icon', function (done) {
       formats: ['svg', 'ttf', 'eot', 'woff'],
       normalize: true,
       centerHorizontally: true,
-      fontHeight: 1024 // must need for perfect icon
+      fontHeight: 1024, // must need for perfect icon
+      log: function () {} // for disable third part log
     }))
   async.parallel([
-    function handleGlyphs (cb) {
+    function handleGlyphs () {
       iconStream.on('glyphs', function (glyphs, options) {
         glyphs.forEach(function (glyph, idx, arr) {
           arr[idx].codePoint = glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase()
         })
-        gulp.src(path.resolve(__dirname, './template/iconTemplate.ejs'))
+        gulp.src(path.join(__dirname, './template/iconTemplate.ejs'))
           .pipe(consolidate('lodash', {
             glyphs: glyphs,
             fontName: fontName,
@@ -42,20 +46,25 @@ gulp.task('icon', function (done) {
           }))
           .pipe(rename('icons.css'))
           .pipe(gulp.dest(path.resolve(outPath, './css')))
-          .on('finish', cb)
+          .on('finish', function () {
+            log('svg2icon: Css Created')
+            callback()
+          })
       })
     },
-    function handleFonts (cb) {
+    function handleFonts () {
       iconStream.pipe(gulp.dest(path.resolve(outPath, './fonts')))
-        .on('finish', cb)
+        .on('finish', function () {
+          log('svg2icon: Font Created')
+        })
     }
-  ], done)
-})
+  ])
+}
 
-gulp.task('demo', function () {
+function demo () {
   Promise.all([
     readFile(path.resolve(outPath, './css/icons.css')),
-    readFile(path.resolve(__dirname, './template/demoTemplate.html'))
+    readFile(path.join(__dirname, './template/demoTemplate.html'))
   ]).then(function (values) {
     var data = {
       total: 0,
@@ -74,10 +83,14 @@ gulp.task('demo', function () {
       fs.mkdirSync(path.resolve(outPath, './demo'))
     }
     fs.writeFileSync(path.resolve(outPath, './demo/demo.html'), ejs.render(values[1], data), 'utf8')
+    log('svg2icon: Demo Created')
+    if (openDemo !== false) {
+      opn(path.resolve(outPath, './demo/demo.html'))
+    }
   }).catch(function (err) {
-    console.log(err)
+    log.error(err)
   })
-})
+}
 
 function readFile (fileName) {
   return new Promise(function (resolve, reject) {
@@ -89,4 +102,9 @@ function readFile (fileName) {
       }
     })
   })
+}
+
+module.exports = {
+  icon,
+  demo
 }
