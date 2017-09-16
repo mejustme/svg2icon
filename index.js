@@ -14,7 +14,12 @@ var log = require('fancy-log')
 var opn = require('opn')
 var defaults = require('defaults')
 var argv = require('./command')
-var config = defaults(require(path.resolve('.svg2iconrc')), {
+
+var config = {}
+if (fs.existsSync(path.resolve('.svg2iconrc.js'))) {
+  config = require(path.resolve('.svg2iconrc.js'))
+}
+config = defaults(config, {
   name: 'app-icon',
   svgPath: 'svg',
   outPath: 'icon',
