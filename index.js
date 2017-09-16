@@ -12,13 +12,22 @@ var fs = require('fs')
 var path = require('path')
 var log = require('fancy-log')
 var opn = require('opn')
-var yargs = require('yargs')
-var config = require(path.resolve('.svg2iconrc'))
-var fontName = config.fontName || 'app-icon'
-var svgPath = config.svgPath || 'svg'
-var outPath = config.outPath || 'icon'
-var openDemo = config.openDemo
+var defaults = require('defaults')
+var argv = require('./command')
+var config = defaults(require(path.resolve('.svg2iconrc')), {
+  name: 'app-icon',
+  svgPath: 'svg',
+  outPath: 'icon',
+  auto: true
+})
+// command has default value
+// priority command > .svg2iconrc > default
+var fontName = argv.name === 'app-icon' ? config.name : argv.name
+var svgPath = argv.svgPath === 'svg' ? config.svgPath : argv.svgPath
+var outPath = argv.outPath === 'icon' ? config.outPath : argv.outPath
+var openDemo = argv.auto === true ? config.auto : argv.auto
 
+// generate icon
 function icon (callback) {
   var iconStream = gulp.src([`${svgPath}/*.svg`])
     .pipe(iconfont({
@@ -61,6 +70,7 @@ function icon (callback) {
   ])
 }
 
+// generate demo
 function demo () {
   Promise.all([
     readFile(path.resolve(outPath, './css/icons.css')),
@@ -68,7 +78,8 @@ function demo () {
   ]).then(function (values) {
     var data = {
       total: 0,
-      arr: []
+      arr: [],
+      fontName: fontName
     }
     // window \r\n and linux \n
     var regexpStr = `\\.(${fontName}-.+):before[^"]+"\\\\(.+)"`

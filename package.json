@@ -4,7 +4,8 @@
   "description": "make svg to iconfont with config in .svg2iconrc, also provide all icon view demo.html。通过简单的配置，将svg文件变成字体，并提供所有icon可视化展现页面",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "",
+    "lint": "eslint ."
   },
   "bin": {
     "svg2icon": "bin/svg2icon.js"
@@ -26,6 +27,7 @@
   "homepage": "https://github.com/mejustme/svg2icon#readme",
   "dependencies": {
     "async": "^2.5.0",
+    "defaults": "^1.0.3",
     "ejs": "^2.5.7",
     "fancy-log": "^1.3.0",
     "gulp": "^3.9.1",
@@ -34,5 +36,12 @@
     "gulp-rename": "^1.2.2",
     "opn": "^5.1.0",
     "yargs": "^8.0.2"
+  },
+  "devDependencies": {
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
   }
 }
