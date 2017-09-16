@@ -101,7 +101,7 @@ function demo () {
     fs.writeFileSync(path.resolve(outPath, './demo/demo.html'), ejs.render(values[1], data), 'utf8')
     log('svg2icon: Demo Created')
     if (openDemo !== false) {
-      opn(path.resolve(outPath, './demo/demo.html'))
+      opn(path.resolve(outPath, './demo/demo.html')).then(() => {})
     }
   }).catch(function (err) {
     log.error(err)
