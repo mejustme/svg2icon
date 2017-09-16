@@ -1,0 +1,36 @@
+{
+  "name": "svg2icon",
+  "version": "1.0.0",
+  "description": "make svg to iconfont with config in .svg2iconrc, also provide all icon view demo.html。通过简单的配置，将svg文件变成字体，并提供所有icon可视化展现页面",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "svg2icon": "bin/svg2icon.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mejustme/svg2icon.git"
+  },
+  "keywords": [
+    "svg",
+    "icon",
+    "iconfont"
+  ],
+  "author": "mejustme",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mejustme/svg2icon/issues"
+  },
+  "homepage": "https://github.com/mejustme/svg2icon#readme",
+  "dependencies": {
+    "yargs": "^8.0.2",
+    "gulp": "^3.9.1",
+    "gulp-consolidate": "^0.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-iconfont": "^9.0.0",
+    "async": "^2.5.0",
+    "ejs": "^2.5.7"
+  }
+}
