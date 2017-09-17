@@ -21,14 +21,14 @@ if (fs.existsSync(path.resolve('.svg2iconrc.js'))) {
 }
 config = defaults(config, {
   name: 'app-icon',
-  svgPath: 'svg',
+  svgPath: 'icon/svg',
   outPath: 'icon',
   auto: true
 })
 // command has default value
 // priority command > .svg2iconrc > default
 var fontName = argv.name === 'app-icon' ? config.name : argv.name
-var svgPath = argv.svgPath === 'svg' ? config.svgPath : argv.svgPath
+var svgPath = argv.svgPath === 'icon/svg' ? config.svgPath : argv.svgPath
 var outPath = argv.outPath === 'icon' ? config.outPath : argv.outPath
 var openDemo = argv.auto === true ? config.auto : argv.auto
 
@@ -101,7 +101,7 @@ function demo () {
     fs.writeFileSync(path.resolve(outPath, './demo/demo.html'), ejs.render(values[1], data), 'utf8')
     log('svg2icon: Demo Created')
     if (openDemo !== false) {
-      opn(path.resolve(outPath, './demo/demo.html')).then(() => {})
+      opn(path.resolve(outPath, './demo/demo.html'), {wait: false})
     }
   }).catch(function (err) {
     log.error(err)

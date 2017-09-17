@@ -9,7 +9,7 @@ var argv = require('yargs')
   .option('svgPath', {
     alias: 'i',
     demand: false,
-    default: 'svg',
+    default: 'icon/svg',
     describe: 'input svg path, read from {svgPath}/*.svg',
     type: 'string'
   })
@@ -28,7 +28,7 @@ var argv = require('yargs')
     type: 'boolean'
   })
   .usage('Usage: svg2icon [options]')
-  .example('svg2icon -n app-icon -i ./src/icon/svg -o ./src/icon/ -a false')
+  .example('svg2icon -n app-icon -i ./icon/svg -o ./icon/ -a true')
   .example('svg2icon : just simple command with a .svg2iconrc.js config file')
   .example('more detail : https://www.npmjs.com/package/svg2icon')
   .help('h')
