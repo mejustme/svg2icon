@@ -1,4 +1,4 @@
-## svg2icon [![npm](https://img.shields.io/badge/npm-v1.2.1-blue.svg)](https://www.npmjs.com/package/svg2icon)
+## svg2icon [![npm](https://img.shields.io/badge/npm-v1.2.2-blue.svg)](https://www.npmjs.com/package/svg2icon)
 ### use iconfont has never been so simple
 
 ### Why use it
