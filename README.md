@@ -59,3 +59,8 @@ Usage: svg2icon [options]
   more detail : https://www.npmjs.com/package/svg2icon
 
 ```
+
+### tips
+you can get svg from list below site
+- https://icomoon.io/
+- http://www.iconfont.cn/ `if not work place delete svg with="xx" height="xx" attribute`
