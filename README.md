@@ -8,7 +8,7 @@
 - faster and more simple to generate font
 
 ### How it work
-![图片](https://pt-starimg.didistatic.com/static/starimg/img/1505625329233r3QhKim0ZizA3IIpyi2.png)
+![图片](https://pt-starimg.didistatic.com/static/starimg/img/1505625481860RTN7MPL0v9ORbxS2bHg.png)
 
 ### Install
 ```
@@ -18,12 +18,12 @@ npm install svg2icon --save-dev
 ### Usage
 configure the `priority`: command > .svg2iconrc.js > default
 
-### example 1
+#### example 1
 with command param
 ``` shell
 svg2icon -n app-icon -i ./icon/svg -o ./icon/ -a true
 ```
-### example 2 - recommend
+#### example 2 - recommend
 with file `.svg2iconrc.js` config
 ```js
 module.exports = {
