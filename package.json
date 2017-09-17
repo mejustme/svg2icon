@@ -1,6 +1,6 @@
 {
   "name": "svg2icon",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "make svg to iconfont with config in .svg2iconrc, also provide all icon view demo.html。通过简单的配置，将svg文件变成字体，并提供所有icon可视化展现页面",
   "main": "index.js",
   "scripts": {
