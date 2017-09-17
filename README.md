@@ -11,7 +11,7 @@
 ![图片](https://pt-starimg.didistatic.com/static/starimg/img/1505625862063ZHeJtR2sAGHOKgP1ZaQ.png)
 
 ### Install
-```
+``` shell
 npm install svg2icon --save-dev
 ```
 
