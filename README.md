@@ -1,4 +1,4 @@
-## svg2icon [![npm](https://img.shields.io/badge/npm-v1.2.2-blue.svg)](https://www.npmjs.com/package/svg2icon)
+## svg2icon [![npm](https://img.shields.io/badge/npm-v1.2.3-blue.svg)](https://www.npmjs.com/package/svg2icon)
 ### use iconfont has never been so simple
 
 ### Why use it
@@ -63,4 +63,5 @@ Usage: svg2icon [options]
 ### tips
 you can get svg from list below site
 - https://icomoon.io/
-- http://www.iconfont.cn/ `if not work place delete svg with="xx" height="xx" attribute`
+- http://www.iconfont.cn/
+- important: www.iconfont.cn svg if not work please `delete svg with="xx" height="xx"` attribute
