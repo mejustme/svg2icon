@@ -18,12 +18,12 @@ npm install svg2icon --save-dev
 ### Usage
 configure the `priority`: command > .svg2iconrc.js > default
 
-#### example 1
+### example 1
 with command param
 ``` shell
 svg2icon -n app-icon -i ./icon/svg -o ./icon/ -a true
 ```
-#### example 2 - recommend
+### example 2 - recommend
 with file `.svg2iconrc.js` config
 ```js
 module.exports = {
