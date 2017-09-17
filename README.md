@@ -22,8 +22,9 @@ configure the `priority`: command > .svg2iconrc.js > default
 ``` shell
 svg2icon -n app-icon -i ./icon/svg -o ./icon/ -a true
 ```
-#### example 2  with file `.svg2iconrc.js` config (`recommend`)
+#### example 2  with file `.svg2iconrc.js` config
 ```js
+// recommend
 module.exports = {
   auto: true,
   name: 'app-icon',
