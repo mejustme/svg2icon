@@ -1,4 +1,4 @@
-## svg2icon [![npm](https://img.shields.io/badge/npm-v1.1.0-blue.svg)](https://www.npmjs.com/package/svg2icon)
+## svg2icon [![npm](https://img.shields.io/badge/npm-v1.2.0-blue.svg)](https://www.npmjs.com/package/svg2icon)
 ### use iconfont has never been so simple
 
 ### Why use it
@@ -12,6 +12,10 @@
 
 ### Install
 ``` shell
+// global
+npm install svg2icon -g
+
+// local
 npm install svg2icon --save-dev
 ```
 
