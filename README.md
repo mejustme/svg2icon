@@ -8,7 +8,7 @@
 - faster and more simple to generate font
 
 ### How it work
-![图片](https://pt-starimg.didistatic.com/static/starimg/img/1505625150917ySbMYRHrlinqcicuRNR.png)
+![图片](https://pt-starimg.didistatic.com/static/starimg/img/1505625329233r3QhKim0ZizA3IIpyi2.png)
 
 ### Install
 ```
