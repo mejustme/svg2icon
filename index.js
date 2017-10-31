@@ -30,7 +30,7 @@ config = defaults(config, {
 var fontName = argv.name === 'app-icon' ? config.name : argv.name
 var svgPath = argv.svgPath === 'icon/svg' ? config.svgPath : argv.svgPath
 var outPath = argv.outPath === 'icon' ? config.outPath : argv.outPath
-var openDemo = argv.auto === true ? config.auto : argv.auto
+var openDemo = argv.auto === undefined ? config.auto : argv.auto
 
 // generate icon
 function icon (callback) {

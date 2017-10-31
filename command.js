@@ -23,7 +23,6 @@ var argv = require('yargs')
   .option('auto', {
     alias: 'a',
     demand: false,
-    default: true,
     describe: 'auto open demo.html in browser, when run generate it',
     type: 'boolean'
   })
